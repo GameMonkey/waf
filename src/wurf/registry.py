@@ -36,6 +36,7 @@ from .tag_database import TagDatabase
 from .existing_tag_resolver import ExistingTagResolver
 from .url_download import UrlDownload
 from .http_resolver import HttpResolver
+from .ftp_resolver import FtpResolver
 from .archive_resolver import ArchiveResolver
 
 from .error import Error
@@ -714,6 +715,18 @@ def resolve_from_lock_git(registry, lock_cache, dependency):
 
     return resolver
 
+
+@Registry.cache
+@Registry.provide
+def resolve_ftp(options, server):
+    dependency.resolver_action = 'ftp'
+
+    resolver = FtpResolver(server)
+
+    if options.fast_resolve():
+        pass
+
+    return resolver
 
 @Registry.cache
 @Registry.provide

@@ -14,9 +14,8 @@ def resolve(ctx):
         internal=False,
         optional=False,
         resolver='ftp',
-        extract=True,
-        filename='endian-4.0.0.zip',
-        sources=['https://github.com/steinwurf/endian/archive/4.0.0.zip'])
+        sources=['waf/1.0.0/waf'],
+        server='win1.chocolate-cloud.cc')
 
 
 def options(opt):
